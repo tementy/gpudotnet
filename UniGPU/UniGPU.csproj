@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D4E5C949-540D-4575-8055-8C348B9919DC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>UniGPU</RootNamespace>
+    <AssemblyName>UniGPU</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Core\Elf.cs" />
+    <Compile Include="Core\Utils.cs" />
+    <Compile Include="Core\CILOpCodes.cs" />
+    <Compile Include="Core\CIL\InstructionSelector.cs" />
+    <Compile Include="Core\IR\ControlFlowInstruction.cs" />
+    <Compile Include="Core\IROpCodes.cs" />
+    <Compile Include="Core\PTXEmitter.cs" />
+    <Compile Include="Core\IR\BasicBlockInstruction.cs" />
+    <Compile Include="Core\CIL\StateSpaceAttribute.cs" />
+    <Compile Include="Core\CIL\BuiltinVariables.cs" />
+    <Compile Include="Core\IR\Subprogram.cs" />
+    <Compile Include="Core\CIL\SubprogramBuilder.cs" />
+    <Compile Include="Core\IR\Program.cs" />
+    <Compile Include="Core\CIL\ProgramBuilder.cs" />
+    <Compile Include="Core\CIL\BuiltinFunctions.cs" />
+    <Compile Include="Core\CIL\KernelAttribute.cs" />
+    <Compile Include="Core\CIL\IntrinsicFunctionAttribute.cs" />
+    <Compile Include="Core\CIL\PredefinedValueAttribute.cs" />
+    <Compile Include="Core\IR\BasicBlock.cs" />
+    <Compile Include="Core\IR\Inline.cs" />
+    <Compile Include="Core\IR\GenericInstruction.cs" />
+    <Compile Include="Core\IR\GenericOperand.cs" />
+    <Compile Include="Core\AMDILEmitter.cs" />
+    <Compile Include="Core\IR\SyntaxTreeBuilder.cs" />
+    <Compile Include="Mono.Reflection\BackingFieldResolver.cs" />
+    <Compile Include="Mono.Reflection\ByteBuffer.cs" />
+    <Compile Include="Mono.Reflection\Disassembler.cs" />
+    <Compile Include="Mono.Reflection\ILPattern.cs" />
+    <Compile Include="Mono.Reflection\Image.cs" />
+    <Compile Include="Mono.Reflection\Instruction.cs" />
+    <Compile Include="Mono.Reflection\MethodBodyReader.cs" />
+    <Compile Include="OpenCL.Net\Cl.API.cs" />
+    <Compile Include="OpenCL.Net\Cl.Delegates.cs" />
+    <Compile Include="OpenCL.Net\Cl.Enums.cs" />
+    <Compile Include="OpenCL.Net\Cl.Extensions.cs" />
+    <Compile Include="OpenCL.Net\Cl.Overloads.cs" />
+    <Compile Include="OpenCL.Net\Cl.Types.cs" />
+    <Compile Include="ClBinaryBuilder.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Core\" />
+    <Folder Include="Core\IR\" />
+    <Folder Include="Core\CIL\" />
+    <Folder Include="Mono.Reflection\" />
+    <Folder Include="OpenCL.Net\" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="PrefixedHierarchical" ResourceNamePolicy="FileFormatDefault" />
+          <TextStylePolicy FileWidth="120" TabWidth="4" inheritsSet="Mono" inheritsScope="text/plain" scope="text/plain" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+</Project>
